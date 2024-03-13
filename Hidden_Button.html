@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <Style>
+    <title>Hidden Button</title>
+    <style>
         .button {
-            height: 100px;
-            width: 100px;
-            border-radius: 50px;
-            background-color: rgb(176, 135, 32);
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: aquamarine;
         }
-    </Style>
+    </style>
 </head>
 <body>
-    <button id = "button1" class = button></button>
-    <button id = "button2" class = button></button>
-    <button id = "button3" class = button></button>
+    <button id="button1" class="button" onclick="revealResult(this)"></button>
+    <button id="button2" class="button" onclick="revealResult(this)"></button>
+    <button id="button3" class="button" onclick="revealResult(this)"></button>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const randomIndex = Math.floor(Math.random() * buttons.length);
+        const winningButton = buttons[randomIndex];
+
+        function revealResult(currentButton) {
+            if (currentButton === winningButton) {
+                alert("Winner");
+            } else {
+                alert("Loser");
+            }
+        }
+    </script>
 </body>
 </html>
